@@ -2,8 +2,6 @@
 
 namespace vendor\core;
 
-use vendor\core\base\Controller;
-
 class Ruoter{
 
     //таблица маршрутов
@@ -20,7 +18,8 @@ class Ruoter{
 
 
     //поиск совпадения маршрута с таблицей маршрута (если найдено возвращает true, если нет false)
-    public static  function matchRoute($url){
+    public static  function matchRoute($url): bool
+    {
        
 	   foreach (self::$routes as $pattern => $route ) {
 
@@ -99,14 +98,15 @@ class Ruoter{
     }
 
     //перенаправление URL по корректному маршруту
-    protected static function upperCamelCase($name){
+    protected static function upperCamelCase($name): array|string
+    {
         $name = str_ireplace('-', ' ', $name);
         $name = ucwords($name);
-        $name = str_ireplace(' ', '', $name);;
         return $name;
     }
 
-    protected static function loverCamelCase($name){
+    protected static function loverCamelCase($name): string
+    {
         return  lcfirst(self::upperCamelCase($name));
     }
 
@@ -114,7 +114,9 @@ class Ruoter{
     protected static function removeQueryString($url)
     {
         if ($url) {
+
             $params = explode('&', $url, 2);
+
             if (!str_contains($params[0], '=')) {
                 return rtrim($params[0], '/');
 
