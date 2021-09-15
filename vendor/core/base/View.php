@@ -8,17 +8,17 @@ class View
     private array $route = [];
 
     //текущий вид
-    private $view;
+    private string $view;
 
     //текущий шаблон
     private $layout;
 
     /**
      * @param array $route
-     * @param $view
+     * @param string $view
      * @param string $layout
      */
-    public function __construct(array $route, $layout = '',  $view ='')
+    public function __construct(array $route,  $layout = '', string $view ='')
     {
         $this->route = $route;
 

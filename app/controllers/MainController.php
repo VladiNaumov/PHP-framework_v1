@@ -10,7 +10,7 @@ class MainController extends App
     {
 
         // пример как сделать что-бы шаблон не подключался
-        // $this->layout = false;
+        //$this->layout = false;
 
         //подключения layout  'test'
         //$this->layout = 'main';

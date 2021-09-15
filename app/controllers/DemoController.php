@@ -38,7 +38,7 @@ class DemoController
     {
 
         // пример как сделать что-бы шаблон не подключался
-        // $this->layout = false;
+         $this->layout = false;
 
     }
 

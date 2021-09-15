@@ -8,8 +8,6 @@ use vendor\core\Ruoter;
 //считывания данных с URL браузера
  $query = rtrim($_SERVER['QUERY_STRING'], '/');
 
-  $query = 'page';
-
     const WWWW = __DIR__;
     const LAYOUT = 'default';
 
