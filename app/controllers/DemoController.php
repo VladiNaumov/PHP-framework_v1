@@ -5,7 +5,7 @@ namespace app\controllers;
 use vendor\core\base\View;
 
 
-class Demo
+class DemoController
 {
 
     //текущий маршрут

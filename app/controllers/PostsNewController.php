@@ -3,17 +3,17 @@
 namespace app\controllers;
 
 
-class PostsNew extends App
+class PostsNewController extends App
 {
 
     public function indexAction()
     {
-        echo ' PostsNew::index ';
+        echo ' PostsNewController::index ';
     }
 
     public function postNewAction()
     {
-       echo 'PostsNew::postNewAction';
+       echo 'PostsNewController::postNewAction';
     }
 
     public function testAction()
@@ -23,7 +23,7 @@ class PostsNew extends App
 
     public function before(){
 
-        echo 'PostsNew::before';
+        echo 'PostsNewController::before';
     }
 
 }

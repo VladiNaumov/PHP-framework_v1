@@ -8,10 +8,10 @@ use vendor\core\base\Controller;
 class Ruoter{
 
     //таблица маршрутов
-    protected static array $routes = [];
+    private static array $routes = [];
 
     //текущий маршрут
-     protected static array $route = [];
+    private static array $route = [];
 
 
     //добовление маршрута в таблицу маршрутов
@@ -19,15 +19,6 @@ class Ruoter{
         self::$routes[$regexp] = $route;
     }
 
-    //вспомагательный метод для распечатки маршрутов
-    public static function gerRoutes(){
-        return self::$routes;
-    }
-
-    //возвращает текущий маршрут
-    public static function getRoute(){
-        return self::$route;
-    }
 
     //поиск совпадения маршрута с таблицей маршрута (если найдено возвращает true, если нет false)
     public static  function matchRoute($url){
@@ -67,19 +58,26 @@ class Ruoter{
 
         if(self::matchRoute($url)) {
 
-            // переменная принимающая String (строку)
-            $controller = 'app\controllers\\'. self::$route['controller'];
+
+            $controller = 'app\controllers\\'. self::$route['controller'] . 'Controller';
+
+            // Если URL https://naumdeveloper.site/ то $controller = app\controllers\MainController
+            // Если URL https://naumdeveloper.site/posts то $controller = app\controllers\DemoController
+            // Если URL https://naumdeveloper.site/page то $controller = app\controllers\PageController
 
             if (class_exists($controller)) {
 
-                // переменная принимающая ??????
+                //
                 $cObj = new $controller(self::$route);
 
-                // переменная принимающая String (строку)
+
+                //
                 $action = self::loverCamelCase(self::$route['action']) . 'Action';
 
                 if (method_exists($cObj, $action)){
                     $cObj->$action();
+
+                    //вызов abstract class Controller -> getView();
                     $cObj->getView();
 
                 }else{

@@ -5,13 +5,13 @@ namespace vendor\core\base;
 class View
 {
    // текущей маршрут
-    public array $route = [];
+    private array $route = [];
 
     //текущий вид
-    public $view;
+    private $view;
 
     //текущий шаблон
-    public $layout;
+    private $layout;
 
     /**
      * @param array $route
@@ -41,6 +41,7 @@ class View
 
         //это переменная хранит полный путь к файлу
         $file_view = APP."/views/{$this->route['controller']}/{$this->view}.php";
+        // /app/views/MainController/index.php
 
         // ob_start — Включение буферизации вывода
         ob_start();
@@ -48,7 +49,7 @@ class View
         if(is_file($file_view)){
             require $file_view;
         }else {
-            echo "<p>Не найден вид <b>{$file_view}</p>";
+            echo "<p>Не найден вид (app/views) <b>{$file_view}</p>";
         }
 
         // ob_get_clean — Получить содержимое текущего буфера и удалить его

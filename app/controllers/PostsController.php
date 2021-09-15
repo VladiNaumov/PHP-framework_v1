@@ -4,16 +4,16 @@ namespace app\controllers;
 
 use vendor\core\base\Controller;
 
-class Posts extends App
+class PostsController extends App
 {
 
     public function indexAction()
     {
-       echo 'Posts::index ';
+       echo 'PostsController::index ';
     }
 
     public function addAction()
     {
-        echo 'Posts::addAction ';
+        echo 'PostsController::addAction ';
     }
 }

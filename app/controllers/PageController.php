@@ -4,17 +4,17 @@ namespace app\controllers;
 
 use vendor\core\base\Controller;
 
-class Page extends App
+class PageController extends App
 {
 
     public function viewAction()
     {
-       echo 'Page::view';
+       echo 'PageController::view';
     }
 
     public function indexAction()
     {
-        echo 'Page::index ';
+        echo 'PageController::index ';
 
     }
 

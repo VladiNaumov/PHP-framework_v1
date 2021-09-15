@@ -6,15 +6,15 @@ namespace vendor\core\base;
 {
 
     //текущий маршрут
-    public array $route = [];
+    private array $route = [];
 
     //текущий вид
-    public  $view;
+    private  $view;
 
     //текущий шаблон
-    public  $layout;
+    protected $layout;
 
-    public array $vars = [];
+    private array $vars = [];
 
     /**
      * @param array $route
