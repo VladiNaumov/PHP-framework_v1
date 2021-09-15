@@ -6,6 +6,10 @@ namespace app\controllers;
 class PostsNewController extends App
 {
 
+    // public $layout = 'main';
+
+
+
     public function indexAction()
     {
         echo ' PostsNewController::index ';

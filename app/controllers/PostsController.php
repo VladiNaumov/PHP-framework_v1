@@ -2,10 +2,10 @@
 
 namespace app\controllers;
 
-use vendor\core\base\Controller;
-
 class PostsController extends App
 {
+   // public $layout = 'main';
+
 
     public function indexAction()
     {

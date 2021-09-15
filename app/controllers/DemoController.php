@@ -2,18 +2,17 @@
 
 namespace app\controllers;
 
-use vendor\core\base\View;
-
 
 class DemoController extends App
 {
 
+   // public $layout = 'main';
 
     public function indexAction()
     {
 
         // пример как сделать что-бы шаблон не подключался
-        // $this->layout = false;
+        //$this->layout = false;
 
     }
 

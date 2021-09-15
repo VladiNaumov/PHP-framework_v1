@@ -2,10 +2,9 @@
 
 namespace app\controllers;
 
-use vendor\core\base\Controller;
-
 class PageController extends App
 {
+    // public $layout = 'main';
 
     public function viewAction()
     {
