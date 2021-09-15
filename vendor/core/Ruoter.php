@@ -72,8 +72,9 @@ class Ruoter{
                 $cObj = new $controller(self::$route);
 
 
-                //
+                // $action - какой метод будет вызван
                 $action = self::loverCamelCase(self::$route['action']) . 'Action';
+
 
                 if (method_exists($cObj, $action)){
                     $cObj->$action();
