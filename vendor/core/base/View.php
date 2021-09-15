@@ -39,9 +39,15 @@ class View
             extract($vars);
         }
 
-        //это переменная хранит полный путь к файлу
+       /*
+        * переменная  $file_view хранит полный путь для подключения файла
+        * Если URL https://naumdeveloper.site/ то app/views/Main/index.php
+        * Если URL https://naumdeveloper.site/demo то app/views/Demo/index.php
+        * Если URL https://naumdeveloper.site/page то app/views/Page/index.php
+        */
         $file_view = APP."/views/{$this->route['controller']}/{$this->view}.php";
-        // /app/views/MainController/index.php
+
+
 
         // ob_start — Включение буферизации вывода
         ob_start();
@@ -57,7 +63,13 @@ class View
 
         if(false !== $this->layout){
 
-            //это переменная хранит полный путь к файлу (шаблонy)
+            /*
+             * переменная $file_layout хранит полный путь к файлу (шаблонy)
+             * Если URL https://naumdeveloper.site/ то app/layouts/default.php
+             * Если URL https://naumdeveloper.site/demo то app/layouts/default.php
+             * Если URL https://naumdeveloper.site/page то app/layouts/default.php
+             */
+
             $file_layout = APP."/layouts/{$this->layout}.php";
 
             if(is_file($file_layout)){

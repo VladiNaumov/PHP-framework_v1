@@ -2,7 +2,6 @@
 
 namespace vendor\core;
 
-
 use vendor\core\base\Controller;
 
 class Ruoter{
@@ -58,12 +57,14 @@ class Ruoter{
 
         if(self::matchRoute($url)) {
 
+           /*
+            * переменная $controller хранит полный путь для подключения файла
+            * Если URL https://naumdeveloper.site/ то $controller = app\controllers\MainController
+            * Если URL https://naumdeveloper.site/posts то $controller = app\controllers\DemoController
+            * Если URL https://naumdeveloper.site/page то $controller = app\controllers\PageController
+            */
 
             $controller = 'app\controllers\\'. self::$route['controller'] . 'Controller';
-
-            // Если URL https://naumdeveloper.site/ то $controller = app\controllers\MainController
-            // Если URL https://naumdeveloper.site/posts то $controller = app\controllers\DemoController
-            // Если URL https://naumdeveloper.site/page то $controller = app\controllers\PageController
 
             if (class_exists($controller)) {
 
@@ -100,8 +101,8 @@ class Ruoter{
     protected static function upperCamelCase($name){
         $name = str_ireplace('-', ' ', $name);
         $name = ucwords($name);
-
-        return $name = str_ireplace(' ', '', $name);;
+        $name = str_ireplace(' ', '', $name);;
+        return $name;
     }
 
     protected static function loverCamelCase($name){
@@ -109,15 +110,16 @@ class Ruoter{
     }
 
     //используется для пагинации (определение явных и не явных get параметров)
-    protected static function removeQueryString($url){
-        if($url){
-           $params = explode('&', $url, 2);
-          if(!str_contains($params[0], '=')){
-               return rtrim($params[0], '/');
+    protected static function removeQueryString($url)
+    {
+        if ($url) {
+            $params = explode('&', $url, 2);
+            if (!str_contains($params[0], '=')) {
+                return rtrim($params[0], '/');
 
-           }else{
-               return '';
-           }
+            } else {
+                return '';
+            }
 
         }
     }
