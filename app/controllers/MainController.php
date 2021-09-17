@@ -6,7 +6,7 @@ use app\models\Main;
 
 class MainController extends App
 {
-    //public $layout = 'main';
+   // public $layout = 'main';
 
     public function indexAction()
     {
@@ -15,7 +15,7 @@ class MainController extends App
         //$this->layout = false;
 
         //подключения layout  'test'
-        //$this->layout = 'main';
+        // $this->layout = 'main';
         //$this->layout = 'default';
 
         //подключения view 'test'
@@ -23,11 +23,13 @@ class MainController extends App
 
         $model = new Main();
 
-       // $posts = $model->findAll();
-       // debug($posts);
+         $posts = $model->findAll();
+        $posts2 = $model->findAll();
+        $posts3 = $model->findAll();
+         debug($posts);
 
         $title = 'PAGE TITLE';
-        $this->set(compact('title'));
+        $this->set(compact('title', 'posts'));
 
     }
 }

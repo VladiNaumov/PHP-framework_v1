@@ -4,10 +4,11 @@ namespace vendor\core\base;
 
 use vendor\core\Db;
 
-class Model
+abstract class Model
 {
+    protected  $pdo;
 
-    protected $pdo;
+    //хранения имени таблицы с которой работает модель
     protected $table;
 
     public function __construct()
@@ -15,12 +16,16 @@ class Model
         $this->pdo = Db::instance();
     }
 
-    public function query($sql){
+    public function query($sql)
+    {
         return $this->pdo->execute($sql);
     }
 
-    public function findAll(){
+    // этот метод выбирает все данные из таблицы
+    public function findAll()
+    {
       $sql = "SELECT * FROM {$this->table}";
+      return $this->pdo->query($sql);
 
     }
 

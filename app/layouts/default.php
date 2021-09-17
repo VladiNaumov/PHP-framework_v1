@@ -14,7 +14,11 @@
 
 <h3>Подключён шаблон по умолчания DEFAULT</h3>
 
-<?=$content?>
+<?= $content = "";
+$content?>
+
+<?=debug(\vendor\core\Db::$countSql)?>
+<?=debug(\vendor\core\Db::$queries)?>
 
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
