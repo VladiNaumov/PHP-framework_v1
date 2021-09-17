@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Main;
+
 class MainController extends App
 {
     //public $layout = 'main';
@@ -19,15 +21,13 @@ class MainController extends App
         //подключения view 'test'
         // $this -> view = 'test';
 
-        $name = 'VoVa';
-        $hi = 'Hello';
-        $colors= [
-            'yksi'=>'white',
-            'toinen'=>'Black',
-        ];
-        $this->set(compact('hi','name', 'colors'));
+        $model = new Main();
 
+       // $posts = $model->findAll();
+       // debug($posts);
 
+        $title = 'PAGE TITLE';
+        $this->set(compact('title'));
 
     }
 }
