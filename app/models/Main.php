@@ -8,5 +8,6 @@ class Main extends Model
 {
 
     public $table = 'posts';
+    //public $pk = 'id';
 
 }

@@ -24,9 +24,11 @@ class MainController extends App
         $model = new Main();
 
          $posts = $model->findAll();
-        $posts2 = $model->findAll();
-        $posts3 = $model->findAll();
-         debug($posts);
+        // $posts = $model->findOne(2);
+         //$data = $model ->finBySql("SELECT * FROM posts ORDER BY id DESC LIMIT 2");
+        // $data = $model ->finBySql("SELECT * FROM {$model->table} WHERE title LIKE ?", ['%Web%']);
+        $data = $model->finLike('Web', 'title');
+         debug($data);
 
         $title = 'PAGE TITLE';
         $this->set(compact('title', 'posts'));

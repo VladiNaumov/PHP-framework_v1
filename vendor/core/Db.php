@@ -9,7 +9,7 @@ class Db
 
     protected  $pdo;
     protected static $instance;
-    public static int $countSql = 0;
+    public static $countSql = 0;
     public static array $queries = [];
 
 
@@ -36,22 +36,22 @@ class Db
         return self::$instance;
     }
 
-    public function execute($sql)
+    public function execute($sql, $params = [])
     {
         self::$countSql++;
         self::$queries[]=$sql;
 
         $stmt = $this->pdo->prepare($sql);
-        return $stmt -> execute();
+        return $stmt -> execute($params);
     }
 
-    public function query($sql)
+    public function query($sql, $params = [])
     {
         self::$countSql++;
         self::$queries[]=$sql;
 
         $stmt = $this->pdo->prepare($sql);
-        $res = $stmt->execute();
+        $res = $stmt->execute($params);
         if($res !== false) {
             return $stmt->fetchAll();
         }
